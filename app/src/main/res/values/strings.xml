@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CarrroApp</string>
+    <string name="mn_Cadastrar">Cadastrar</string>
+    <string name="menu_configuracoes">Configuração</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tbClassicos">Classicos</string>
+    <string name="tbEsportivo">Esportivo</string>
+    <string name="tbLuxuosos">Luxuosos</string>
+</resources>
