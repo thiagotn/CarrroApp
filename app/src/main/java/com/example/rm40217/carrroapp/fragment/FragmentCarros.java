@@ -32,16 +32,21 @@ public class FragmentCarros extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_carros, container, false);
-        rvCarros = (RecyclerView) v.findViewById(R.id.rvCarros);
+        View view = inflater.inflate(R.layout.fragment_carros, container, false);
+        rvCarros = (RecyclerView) view.findViewById(R.id.rvCarros);
         layoutManager = new LinearLayoutManager(getContext());
         rvCarros.setLayoutManager(layoutManager);
 
-        return inflater.inflate(R.layout.fragment_carros, container, false);
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+        taskCarros();
+    }
+
+    private void taskCarros() {
         CarroService carroService = new CarroService(getContext());
         carros = carroService.getCarros(carroService.loadJSONFromRaw(R.raw.carros_classicos));
 
