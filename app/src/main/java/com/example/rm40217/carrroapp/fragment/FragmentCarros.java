@@ -24,9 +24,19 @@ public class FragmentCarros extends Fragment {
     private List<Carro> carros;
     private RecyclerView rvCarros;
     private LinearLayoutManager layoutManager;
+    private int tipo;
 
     public FragmentCarros() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        if (getArguments() != null) {
+            this.tipo = getArguments().getInt("tipo");
+
+        }
     }
 
     @Override
@@ -48,7 +58,7 @@ public class FragmentCarros extends Fragment {
 
     private void taskCarros() {
         CarroService carroService = new CarroService(getContext());
-        carros = carroService.getCarros(carroService.loadJSONFromRaw(R.raw.carros_classicos));
+        carros = carroService.getCarros(carroService.loadJSONFromRaw(tipo));
 
         rvCarros.setAdapter(new CarroAdapter(getContext(), carros));
     }
